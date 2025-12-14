@@ -12,7 +12,7 @@ if [ -z "$1" ]; then
 fi
 
 while [[ $intLoop -lt 100000 ]]; do
-	checkSums=$(md5sum -b<<<$(printf "%05d" $intLoop))
+	checkSums=$(printf "%05d" $intLoop | md5sum -b)
 	if [ "$checkSums" = "$input" ]; then
 		echo "The pin corresponding to "$1" is $(printf "%05d" $intLoop)"
 		sleep 1
